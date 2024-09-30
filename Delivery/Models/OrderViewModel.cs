@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Delivery.Models;
 
@@ -9,7 +10,9 @@ public class OrderViewModel
         CargoWeight = 1;
     }
 
+    [Key]
     public int Number { get; set; }
+
     public string? SenderCity { get; set; }
     public string? SenderAddress { get; set; }
     public string? RecipientCity { get; set; }

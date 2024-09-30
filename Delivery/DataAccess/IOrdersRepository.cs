@@ -6,6 +6,6 @@ namespace Delivery.DataAccess;
 
 public interface IOrdersRepository
 {
-    IAsyncEnumerable<OrderViewModel> FindAllAsync();
-    Task<OrderViewModel> FindAsync(int orderNumber);
+    IEnumerable<OrderViewModel> FindAll();
+    Task<OrderViewModel?> FindAsync(int orderNumber);
 }

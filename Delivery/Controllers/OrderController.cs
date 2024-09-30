@@ -20,21 +20,19 @@ public class OrderController : Controller
     [HttpGet]
     public async Task<IActionResult> Order(string orderNumber)
     {
-        OrderViewModel order = await PostgresConnectionService.OrdersRepository
+        OrderViewModel? order = await PostgresConnectionService.OrdersRepository
             .FindAsync(int.Parse(orderNumber, CultureInfo.CurrentCulture))
             .ConfigureAwait(false);
 
-        return View(order);
+        return order is not null
+            ? View(order)
+            : Orders();
     }
 
     [HttpGet]
-    public async Task<IActionResult> Orders()
+    public IActionResult Orders()
     {
-        List<OrderViewModel> orders = await PostgresConnectionService.OrdersRepository
-            .FindAllAsync()
-            .ToListAsync()
-            .ConfigureAwait(false);
-
+        IEnumerable<OrderViewModel> orders = PostgresConnectionService.OrdersRepository.FindAll();
         return View(new OrderCollectionViewModel(orders));
     }
 
@@ -47,6 +45,6 @@ public class OrderController : Controller
             .AddAsync(order)
             .ConfigureAwait(false);
 
-        return await Orders().ConfigureAwait(false);
+        return Orders();
     }
 }
