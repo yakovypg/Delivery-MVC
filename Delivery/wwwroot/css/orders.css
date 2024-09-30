@@ -1,0 +1,33 @@
+﻿table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+    table td {
+        border: 1px solid black;
+    }
+
+    table th {
+        border: 1px solid black;
+        text-align: center;
+        padding: 0px 15px 0px 15px;
+    }
+
+    table tbody tr {
+        cursor: pointer;
+    }
+
+.div-center {
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.date-field {
+    width: 100%;
+}
+
+.btn-submit {
+    width: 80pt;
+}

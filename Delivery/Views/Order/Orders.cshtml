@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Orders";
+}
+
+@model OrderCollectionViewModel
+
+<table cellpadding="5" cellspacing"5">
+    <thead>
+        <tr>
+            @foreach (string property in Model.GetOrderProperties())
+            {
+                <th>@property</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (OrderViewModel order in Model.Orders)
+        {
+            <tr onclick="location.href = '@Url.Action("Order", "Order", new { orderNumber = order.Number })'">
+                @foreach (string? value in Model.GetOrderValues(order))
+                {
+                    <td>@value</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

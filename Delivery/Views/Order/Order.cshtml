@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Order";
+}
+
+@model OrderViewModel
+
+<h4>Order #@Model.Number</h4>
+<ul>
+    <li>Sender city: @Model.SenderCity</li>
+    <li>Sender address: @Model.SenderAddress</li>
+    <li>Recipient city: @Model.RecipientCity</li>
+    <li>Recipient address: @Model.RecipientAddress</li>
+    <li>Cargo weight: @Model.CargoWeight</li>
+    <li>Receipt date: @Model.ReceiptDate.ToShortDateString()</li>
+</ul>
+

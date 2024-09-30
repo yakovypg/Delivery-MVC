@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Create Order";
+}
+
+@model OrderViewModel
+
+<div class="div-center">
+    @using (Html.BeginForm("Orders", "Order", FormMethod.Post))
+    {
+        <p>
+            <label>Sender city</label><br />
+            
+            @Html.TextBox(
+                "SenderCity",
+                Model.SenderCity,
+                new { required = "true" })
+        </p>
+        <p>
+            <label>Sender address</label><br />
+            
+            @Html.TextBox(
+                "SenderAddress",
+                Model.SenderAddress,
+                new { required = "true" })
+        </p>
+        <p>
+            <label>Recipient city</label><br />
+            
+            @Html.TextBox(
+                "RecipientCity",
+                Model.RecipientCity,
+                new { required = "true" })
+        </p>
+        <p>
+            <label>Recipient address</label><br />
+            
+            @Html.TextBox(
+                "RecipientAddress",
+                Model.RecipientAddress,
+                new { required = "true" })
+        </p>
+        <p>
+            <label>Cargo weight</label><br />
+            
+            @Html.TextBox(
+                "CargoWeight",
+                Model.CargoWeight,
+                new { type = "number", step = "0.001", min = "0", required = "true" })
+        </p>
+        <p>
+            <label>Recipient address</label><br />
+            
+            @Html.TextBox(
+                "ReceiptDate",
+                "",
+                new { @class = "date-field", type = "date", required = "true" })
+        </p>
+        <div class="div-center">
+            <input class="btn-submit" type="submit" value="Create" />
+        </div>
+    }
+</div>
